@@ -1,9 +1,6 @@
 #!/bin/bash
 
-
- /#/ { print } < t.txt
-
-
+awk /#/ { print } $1 >header.txt
 
 cat >> script.awk <<EOL
 
