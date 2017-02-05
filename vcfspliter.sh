@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+ /#/ { print } < t.txt
+
+
+
 cat >> script.awk <<EOL
 
 #find a line with CHROM in the vcf file, go through the fields, place in hash h1, key=position, value=field content
