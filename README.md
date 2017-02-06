@@ -1,7 +1,7 @@
 # vcfsplit
 
 
-```
+```sh
 #!/bin/bash
 
 #separate header into header.txt
