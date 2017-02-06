@@ -133,7 +133,7 @@ chmod 755 vcfsplitter.sh
 ./vcfsplitter.sh test.vcf
 ```
 
-The output is initial vcf file separated into sample specific vcf file adequately named:
+The output is separation of the initial vcf file into sample specific vcf files adequately named:
 
 ```
 mpjanic@valkyr:~/vcfspliter$ ls -ltrh
@@ -198,4 +198,63 @@ total 256K
 -rw-rw-r-- 1 mpjanic mpjanic 3.7K Feb  5 21:54 9071501.vcf
 -rw-rw-r-- 1 mpjanic mpjanic 3.7K Feb  5 21:54 9090701.vcf
 -rw-rw-r-- 1 mpjanic mpjanic 3.7K Feb  5 21:54 1401.vcf
+```
+
+Content of sample specific vcf files:
+
+```
+mpjanic@valkyr:~/vcfspliter$ cat 1369.vcf
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All	filters	passed">
+##filedate=20160515
+##source="beagle.03May16.862.jar	(version	4.1)"
+##INFO=<ID=AF,Number=A,Type=Float,Description="Estimated	ALT	Allele	Frequencies">
+##INFO=<ID=AR2,Number=1,Type=Float,Description="Allelic	R-Squared:	estimated	squared	correlation	between	most	probable	REF	dose	and	true	REF	dose">
+##INFO=<ID=DR2,Number=1,Type=Float,Description="Dosage	R-Squared:	estimated	squared	correlation	between	estimated	REF	dose	[P(RA)	+	2*P(RR)]	antrue	REF	dose">
+##INFO=<ID=IMP,Number=1,Type=Flag,Description="Imputed	marker">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DS,Number=1,Type=Float,Description="estimated	ALT	dose	[P(RA)	+	P(AA)]">
+##FORMAT=<ID=GP,Number=G,Type=Float,Description="Estimated	Genotype	Probability">
+##contig=<ID=chr1>
+##contig=<ID=chr2>
+##contig=<ID=chr3>
+##contig=<ID=chr4>
+##contig=<ID=chr5>
+##contig=<ID=chr6>
+##contig=<ID=chr7>
+##contig=<ID=chr8>
+##contig=<ID=chr9>
+##contig=<ID=chr10>
+##contig=<ID=chr11>
+##contig=<ID=chr12>
+##contig=<ID=chr13>
+##contig=<ID=chr14>
+##contig=<ID=chr15>
+##contig=<ID=chr16>
+##contig=<ID=chr17>
+##contig=<ID=chr18>
+##contig=<ID=chr19>
+##contig=<ID=chr20>
+##contig=<ID=chr21>
+##contig=<ID=chr22>
+##bcftools_concatVersion=1.3+htslib-1.3
+##bcftools_concatCommand=concat	-Ov	-o	recalibrated_biallelic_SNP.beagle.vcf	recalibrated_biallelic_SNP.beagle.chr1.vcf.gz	recalibrated_biallelic_SNP.beagle.chr2.vcf.gz	recalibrated_biallelic_SNP.beagle.chr3.vcf.gz	recalibrated_biallelic_SNP.beagle.chr4.vcf.gz	recalibrated_biallelic_SNP.beagle.chr5.vcf.gz	recalibrated_biallelic_SNP.beagle.chr6.vcf.gz	recalibrated_biallelic_SNP.beagle.chr7.vcf.gz	recalibrated_biallelic_SNP.beagle.chr8.vcf.gz	recalibrated_biallelic_SNP.beagle.chr9.vcf.gz	recalibrated_biallelic_SNP.beagle.chr10.vcf.gz	recalibrated_biallelic_SNP.beagle.chr11.vcf.gz	recalibrated_biallelic_SNP.beagle.chr12.vcf.gz	recalibrated_biallelic_SNP.beagle.chr13.vcf.gz	recalibrated_biallelic_SNP.beagle.chr14.vcf.gz	recalibrated_biallelic_SNP.beagle.chr15.vcf.gz	recalibrated_biallelic_SNP.beagle.chr16.vcf.gz	recalibrated_biallelic_SNP.beagle.chr17.vcf.gz	recalibrated_biallelic_SNP.beagle.chr18.vcf.gz	recalibrated_biallelic_SNP.beagle.chr19.vcf.gz	recalibrated_biallelic_SNP.beagle.chr20.vcf.gz	recalibrated_biallelic_SNP.beagle.chr21.vcf.gz	recalibrated_biallelic_SNP.beagle.chr22.vcf.gz
+##bcftools_viewVersion=1.3+htslib-1.3
+##bcftools_viewCommand=view	-e	INFO/DR2<0.8	-o	recalibrated_biallelic_SNP.beagle.rename.dr2.vcf	recalibrated_biallelic_SNP.beagle.rename.vcf
+##bcftools_viewCommand=view	-T	pass_hwe.txt	-Ov	-o	recalibrated_biallelic_SNP.beagle.rename.dr2.hwe.vcf	recalibrated_biallelic_SNP.beagle.rename.dr2.vcf
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	1369
+chr1	746189	rs139221807	A	G	.	PASS	AR2=1;DR2=1;AF=0.034	GT:DS:GP	0/0:0:1,0,0
+chr1	752270	rs181450891	T	A	.	PASS	AR2=1;DR2=1;AF=0.0086	GT:DS:GP	0/0:0:1,0,0
+chr1	752478	rs146277091	G	A	.	PASS	AR2=1;DR2=1;AF=0.034	GT:DS:GP	0/0:0:1,0,0
+chr1	752566	rs3094315	G	A	.	PASS	AR2=1;DR2=1;AF=0.74	GT:DS:GP	0/0:0:1,0,0
+chr1	752593	rs372531941	T	G	.	PASS	AR2=1;DR2=1;AF=0.034	GT:DS:GP	0/0:0:1,0,0
+chr1	752617	rs149886465	C	A	.	PASS	AR2=1;DR2=1;AF=0.034	GT:DS:GP	0/0:0:1,0,0
+chr1	752721	rs3131972	A	G	.	PASS	AR2=1;DR2=1;AF=0.72	GT:DS:GP	0/0:0:1,0,0
+chr1	753541	rs2073813	G	A	.	PASS	AR2=1;DR2=1;AF=0.22	GT:DS:GP	1/1:2:0,0,1
+chr1	754182	rs3131969	A	G	.	PASS	AR2=1;DR2=1;AF=0.77	GT:DS:GP	0/0:0:1,0,0
+chr1	754192	rs3131968	A	G	.	PASS	AR2=1;DR2=1;AF=0.77	GT:DS:GP	0/0:0:1,0,0
+chr1	754334	rs3131967	T	C	.	PASS	AR2=1;DR2=1;AF=0.77	GT:DS:GP	0/0:0:1,0,0
+chr1	754429	rs114339855	T	G	.	PASS	AR2=1;DR2=1;AF=0.0086	GT:DS:GP	0/0:0:1,0,0
+chr1	754433	rs150578204	G	A	.	PASS	AR2=1;DR2=1;AF=0.0086	GT:DS:GP	0/1:1:0,1,0
+chr1	754458	rs142682604	G	T	.	PASS	AR2=0.99;DR2=0.99;AF=0.0087	GT:DS:GP	0/0:0:1,0,0
 ```
