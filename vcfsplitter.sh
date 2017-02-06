@@ -57,3 +57,4 @@ rm columns.txt
 rm common.txt
 rm header.txt
 rm body.txt
+rm tabsep.sh
