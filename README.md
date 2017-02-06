@@ -132,3 +132,70 @@ Run the script providing the vcf file name as argument:
 chmod 755 vcfsplitter.sh
 ./vcfsplitter.sh test.vcf
 ```
+
+The output is initial vcf file separated into sample specific vcf file adequately named:
+
+```
+mpjanic@valkyr:~/vcfspliter$ ls -ltrh
+total 256K
+-rwxrwxr-x 1 mpjanic mpjanic  706 Feb  5 19:19 vcfspl.sh
+-rw-rw-r-- 1 mpjanic mpjanic  14K Feb  5 19:55 test.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1020301.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 102901.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1042702.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1051601.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1060602.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 10705.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 112201.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1278.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1346.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1347.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1369.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1386.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1448.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1483.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1497.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1522.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.9K Feb  5 21:54 1559.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1576.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1587.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1596.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 177089.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1795.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1923.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 200212.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2030801.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2040401.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 20805.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.9K Feb  5 21:54 2105.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 1508.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2115.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2135.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2139.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2161.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2228.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2282.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2305.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2356.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 24156.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.9K Feb  5 21:54 2435.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2463.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2477.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2510.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2999.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 2989.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 3003.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 3100203.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 3101801.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 317155.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 59386145.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.9K Feb  5 21:54 59885590.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 7103002.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 8072501.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 8100901.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.8K Feb  5 21:54 9052004.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.7K Feb  5 21:54 9070202.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.7K Feb  5 21:54 9071501.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.7K Feb  5 21:54 9090701.vcf
+-rw-rw-r-- 1 mpjanic mpjanic 3.7K Feb  5 21:54 1401.vcf
+```
