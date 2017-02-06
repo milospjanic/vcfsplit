@@ -1,29 +1,59 @@
 #!/bin/bash
 
-awk /#/ { print } $1 >header.txt
+#separate header into header.txt
+awk '/##/ { print }' $1 > header.txt
 
-cat >> script.awk <<EOL
+#separate rest of the file to body.txt
+awk '!/##/ { print }' $1 > body.txt
 
-#find a line with CHROM in the vcf file, go through the fields, place in hash h1, key=position, value=field content
+#tab separate body
+wget https://raw.githubusercontent.com/milospjanic/tabsep/master/tabsep.sh
+./tabsep.sh body.txt
 
-/#[CHROM|CHR|chrom|chr]/ { for(i = 1; i <= NF; i++) {h1[i] = \$i}}
+#separate common columns and sample columns into common.txt and columns.txt
+cut -f 1-9 body.txt > common.txt
 
-#find a line with SNP ID, go through the fields, if field contains 0/1 or 0|1 print het, hash value (sample name), position, content 
+cut -f 10- body.txt > columns.txt
 
-/$1/{for(i = 1; i <= NF; i++)  
-{if (\$i~/^0[\/\|]1/) printf "Heterozygote\t"h1[i]"\t"i"\t"\$i"\n"}}
+#use awk to get number of columns i.e. number of samples
+NCOLUMNS=$(awk 'NR==1{print NF}' columns.txt) 
 
-#find a line with SNP ID, go through the fields, if field contains 0/0 or 0|0 print ref homo, hash value (sample name), position, content
+#cut each column and save as separate file, numbered from 1 to $NCOLUMNS
+for i in `seq 1 $NCOLUMNS`;
+        do
+                cut -f $i columns.txt > $i.txt
+        done    
 
-/$1/{for(i = 1; i <= NF; i++)  
-{if (\$i~/^0[\/\|]0/) printf "Reference homozygote\t"h1[i]"\t"i"\t"\$i"\n"};}
+#paste common columns to each file
+for i in `seq 1 $NCOLUMNS`;
+        do
+                 paste -d' '  common.txt $i.txt > $i.paste.txt
+		 ./tabsep.sh $i.paste.txt
+        done    
 
-#find a line with SNP ID, go through the fields, if field contains 1/1 or 1|1 print ref homo, hash value (sample name), position, content
+#concatenate header to each file
+for i in `seq 1 $NCOLUMNS`;
+        do
+                 cat header.txt $i.paste.txt >$i.vcf
+                 ./tabsep.sh $i.vcf
+        done
 
-/$1/{for(i = 1; i <= NF; i++)  
-{if (\$i~/^1[\/\|]1/) printf "Alternative homozygote\t"h1[i]"\t"i"\t"\$i"\n"};}
-EOL
+#remove intermediary files
+for i in `seq 1 $NCOLUMNS`;
+        do
+                 rm $i.txt
+                 rm $i.paste.txt
+        done
 
-#run awk script with $2 provided as vcf file
+#use awk to get sample name, place it in variable $SAMPLE and change each file's name accordingly
+for i in `seq 1 $NCOLUMNS`;
+        do
+                 SAMPLE=$(awk '/#(CHROM|CHR|chrom|chr)/ {printf $10}' $i.vcf);
+                 mv $i.vcf $SAMPLE.vcf
+        done
 
-awk -f script.awk $2
+#remove files
+rm columns.txt
+rm common.txt
+rm header.txt
+rm body.txt
