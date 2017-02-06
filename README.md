@@ -126,3 +126,9 @@ chr1	754458	rs142682604	G	T	.	PASS	AR2=0.99;DR2=0.99;AF=0.0087	GT:DS:GP	0/0:0:1,
 
 ```
 
+Run the script providing the vcf file name as argument:
+
+```
+chmod 755 vcfsliter.sh
+./vcfspliter.sh test.vcf
+```
