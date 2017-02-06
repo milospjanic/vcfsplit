@@ -1,4 +1,4 @@
-# vcfsplit
+# vcfsplitter
 
 This is a bash script to convert a combined vcf file into separate sample-specific vcf files, while preserving the header and common fields of the combined vcf. Script will name each sample-specific vcf file with the sample name it reads from the combined vcf.
 
@@ -129,6 +129,6 @@ chr1	754458	rs142682604	G	T	.	PASS	AR2=0.99;DR2=0.99;AF=0.0087	GT:DS:GP	0/0:0:1,
 Run the script providing the vcf file name as argument:
 
 ```
-chmod 755 vcfsliter.sh
-./vcfspliter.sh test.vcf
+chmod 755 vcfsplitter.sh
+./vcfsplitter.sh test.vcf
 ```
